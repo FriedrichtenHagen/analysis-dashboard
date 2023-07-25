@@ -42,7 +42,7 @@ const mockDate = createMockData(50, testDate)
 
 
 export const Component = () => {
-  const data = { nodes: mockDate };
+  const data = { nodes:mockDate };
 
   const theme = useTheme(getTheme());
 
