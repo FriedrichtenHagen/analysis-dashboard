@@ -1,7 +1,8 @@
+
 export default function createMockData(dataSetNumber:number, startDate:Date){
     const mockJson = []
 
-    for(let i=0; i<dataSetNumber; i++){
+    for(let i=0; i < dataSetNumber; i++){
         // increment the date by i
         let clone = structuredClone(startDate)
         clone.setDate(clone.getDate() + i)
@@ -12,14 +13,14 @@ export default function createMockData(dataSetNumber:number, startDate:Date){
         let revenue = Math.floor(Math.random()*1000000)
 
         mockJson.push({
+            id: i,
             date: clone,
-            meta: meta_spend, 
-            type: google_spend,
-            isComplete: revenue,
+            meta_spend: meta_spend, 
+            google_spend: google_spend,
+            revenue: revenue,
         })
     }
     console.log(mockJson)
     return mockJson
 }
 
-// .setDate(startDate.getDate() + i)
