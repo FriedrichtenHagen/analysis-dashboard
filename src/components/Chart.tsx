@@ -56,7 +56,23 @@ ChartJS.register(
   };
 
 
-export function Chart({data1}){
+interface dataDay {
+    date: Date,
+    google_spend: number, 
+    id: number, 
+    meta_spend: number, 
+    revenue: number,
+}
+
+export function Chart({date, google_spend, id, meta_spend, revenue}:dataDay){
+
+    // convert data to correct format for the chart
+    let labelsConverted:Date[];
+    data1.map((dataset:dataDay) =>{
+        labelsConverted.push(dataset.date)
+    })
+
+
 
     return <Line  style={{marginBottom: 100}} options={options} data={data} />
     

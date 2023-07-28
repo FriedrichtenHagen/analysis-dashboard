@@ -6,12 +6,12 @@ import { useSort } from "@table-library/react-table-library/sort";
 
 
 
-export const Table = ({data1}) => {
+export const Table = ({data1}:any) => {
   const theme = useTheme(getTheme());
-  const data = { nodes:data1 };
+  const data = { nodes: data1 };
 
   const sort = useSort(
-    data,
+    data1,
     {
       onChange: onSortChange,
     },
