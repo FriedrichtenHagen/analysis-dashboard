@@ -35,45 +35,55 @@ ChartJS.register(
     },
   };
 
-  const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-
-  export const data = {
-    labels,
-    datasets: [
-      {
-        label: 'meta_spend',
-        data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
-        borderColor: 'rgb(255, 99, 132)',
-        backgroundColor: 'rgba(255, 99, 132, 0.5)',
-      },
-      {
-        label: 'revenue',
-        data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
-        borderColor: 'rgb(53, 162, 235)',
-        backgroundColor: 'rgba(53, 162, 235, 0.5)',
-      },
-    ],
-  };
-
-
-interface dataDay {
+export interface dataDay {
     date: Date,
     google_spend: number, 
     id: number, 
     meta_spend: number, 
     revenue: number,
 }
+export interface dataDayProps {
+    data1: dataDay[]
+}
 
-export function Chart({date, google_spend, id, meta_spend, revenue}:dataDay){
+export function Chart({data1}:dataDayProps){
 
     // convert data to correct format for the chart
-    let labelsConverted:Date[];
+    let labels:string[] = [];
     data1.map((dataset:dataDay) =>{
-        labelsConverted.push(dataset.date)
+        labels.push(dataset.date.toLocaleDateString('de-DE'))
     })
 
 
+    let convertedChartData = {
+        labels,
+        datasets: [
+            {
+                label: 'google_spend',
+                data: labels.map((_item, index)=> data1[index].google_spend),
+                borderColor: 'rgb(255, 99, 132)',
+                backgroundColor: 'rgba(255, 99, 132, 0.5)',
+            },
+            {
+                label: 'meta_spend',
+                data: labels.map((_item, index)=> data1[index].meta_spend),
+                borderColor: 'rgb(53, 162, 235)',
+                backgroundColor: 'rgba(53, 162, 235, 0.5)',
+            },
+            {
+                label: 'revenue',
+                data: labels.map((_item, index)=> data1[index].revenue),
+                borderColor: 'rgb(150, 162, 235)',
+                backgroundColor: 'rgba(153, 162, 235, 0.5)',
+            },
 
-    return <Line  style={{marginBottom: 100}} options={options} data={data} />
+
+        ]
+    }
+    console.log(convertedChartData)
+
+    return <>
+        <Line  style={{marginBottom: 100}} options={options} data={convertedChartData} />
+    </>
     
 }

@@ -6,7 +6,7 @@ import createMockData  from './createMockData'
 function App() {
   
   const startDate = new Date(2023, 1, 1)
-  const mockData = createMockData(50, startDate)
+  const mockData = createMockData(30, startDate)
   const [data] = useState(mockData)
 
 

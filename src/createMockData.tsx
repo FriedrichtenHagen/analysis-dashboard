@@ -8,9 +8,9 @@ export default function createMockData(dataSetNumber:number, startDate:Date){
         clone.setDate(clone.getDate() + i)
 
         // create random amounts
-        let meta_spend = Math.floor(Math.random()*1000)
+        let meta_spend = Math.floor(Math.random()*10000)
         let google_spend = Math.floor(Math.random()*10000)
-        let revenue = Math.floor(Math.random()*1000000)
+        let revenue = Math.floor(Math.random()*30000)
 
         mockJson.push({
             id: i,
@@ -20,7 +20,7 @@ export default function createMockData(dataSetNumber:number, startDate:Date){
             revenue: revenue,
         })
     }
-    console.log(mockJson)
+    //console.log(mockJson)
     return mockJson
 }
 
