@@ -61,7 +61,7 @@ export const Table = ({data1}:any) => {
       sort: { sortKey: "Revenue" },
     },
     { 
-      label: 'shop',
+      label: 'Test',
       renderCell: (item:any) => item.nodes?.length 
     },
   ];
