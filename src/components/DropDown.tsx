@@ -1,17 +1,19 @@
 import { Dropdown } from 'rsuite';
 
 export function DropDown(){
+    function handleMenuClick(e){
+        console.log(e.target.value)
+    }
     return(
-        <>
-            <Dropdown title="Dropdown">
-                <Dropdown.Item>New File</Dropdown.Item>
-                <Dropdown.Item>New File with Current Profile</Dropdown.Item>
-                <Dropdown.Item>Download As...</Dropdown.Item>
-                <Dropdown.Item>Export PDF</Dropdown.Item>
-                <Dropdown.Item>Export HTML</Dropdown.Item>
-                <Dropdown.Item>Settings</Dropdown.Item>
-                <Dropdown.Item>About</Dropdown.Item>
+        <div style={{backgroundColor:'#fff',
+            border: '1px solid #0000'}}>
+            <Dropdown title="Menu" placement="bottomEnd">
+                <Dropdown.Item onClick={handleMenuClick}>Overview Daily</Dropdown.Item>
+                <Dropdown.Item onClick={handleMenuClick}>Monthly Overview</Dropdown.Item>
+                <Dropdown.Item onClick={handleMenuClick}>Pie Chart Total Spend</Dropdown.Item>
+                <Dropdown.Item onClick={handleMenuClick}>Creative Performance</Dropdown.Item>
+                <Dropdown.Item onClick={handleMenuClick}>Best Days</Dropdown.Item>
             </Dropdown>
-        </>
+        </div>
     )
 }
