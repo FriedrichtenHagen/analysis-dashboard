@@ -5,10 +5,17 @@ import createMockData  from '../createMockData'
 
 
 export function DatePicker({ setData }:any) {
+  // make the initial date range the current day plus 30
+  const defaultStartDate = new Date
+  const defaultEndDate = new Date
+  const defaultDateRange = 30
+  defaultEndDate.setDate(defaultStartDate.getDate() + defaultDateRange)
+
   const [dataRange, setDataRange] = useState<[Date, Date]>([
-    new Date,
-    new Date
+    defaultStartDate,
+    defaultEndDate
   ]);
+
 
   function setDateData(startAndEndDate:[Date, Date]){
     const startDate = startAndEndDate[0]
