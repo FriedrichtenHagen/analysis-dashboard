@@ -1,6 +1,6 @@
 import { Table } from './components/Table'
 import { Chart } from './components/Chart'
-import { DatePicker } from './components/DatePicker'
+import { Header } from './components/Header'
 import { useState } from 'react'
 import createMockData  from './createMockData'
 
@@ -11,7 +11,7 @@ function App() {
 
   return (
     <>
-        <DatePicker setData={setData}/>
+        <Header setData={setData}/>       
         <Chart data1={data}/>
         <Table data1={data}/>
     </>

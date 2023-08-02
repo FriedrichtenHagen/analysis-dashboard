@@ -17,22 +17,26 @@ export function DatePicker({ setData }:any) {
   ]);
 
 
-  function setDateData(startAndEndDate:[Date, Date]){
-    const startDate = startAndEndDate[0]
-    const endDate = startAndEndDate[1]
-    setDataRange([startDate, endDate])
-    const numberOfDaysInRange = daysBetweenTwoDates(startDate, endDate)
-    const mockData = createMockData(numberOfDaysInRange, startDate)
-    setData(mockData)
+  function setDateData(startAndEndDate:[Date, Date]|null){
+    if(startAndEndDate===null){
+      setDataRange([defaultStartDate, defaultEndDate])
+    } else{
+      const startDate = startAndEndDate[0]
+      const endDate = startAndEndDate[1]
+      setDataRange([startDate, endDate])
+      const numberOfDaysInRange = daysBetweenTwoDates(startDate, endDate)
+      const mockData = createMockData(numberOfDaysInRange, startDate)
+      setData(mockData)
+    }
   }
+   
+  
   function daysBetweenTwoDates(firstDate:Date, secondDate:Date){
     const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
     return Math.round(Math.abs((firstDate.getTime() - secondDate.getTime()) / oneDay));
   }
 
   return (
-     // @ts-ignore
-    <DateRangePicker value={dataRange} onChange={e => setDateData(e)} />
-  );
+    <DateRangePicker style={{width: 225}} value={dataRange} onChange={setDateData}/>
+  )
 }
-
