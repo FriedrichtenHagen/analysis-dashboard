@@ -31,6 +31,7 @@ export function DatePicker({ setData }:any) {
   }
 
   return (
+     // @ts-ignore
     <DateRangePicker value={dataRange} onChange={e => setDateData(e)} />
   );
 }

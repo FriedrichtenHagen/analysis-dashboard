@@ -11,6 +11,7 @@ export default function createMockData(dataSetNumber:number, startDate:Date){
         let meta_spend = Math.floor(Math.random()*10000)
         let google_spend = Math.floor(Math.random()*10000)
         let revenue = Math.floor(Math.random()*30000)
+        let influencer = Math.floor(Math.random()*300)+2000
 
         mockJson.push({
             id: i,
@@ -18,6 +19,7 @@ export default function createMockData(dataSetNumber:number, startDate:Date){
             meta_spend: meta_spend, 
             google_spend: google_spend,
             revenue: revenue,
+            influencer: influencer,
         })
     }
     //console.log(mockJson)

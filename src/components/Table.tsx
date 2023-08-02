@@ -4,8 +4,6 @@ import { getTheme } from '@table-library/react-table-library/baseline';
 import { useSort } from "@table-library/react-table-library/sort";
 
 
-
-
 export const Table = ({data1}:any) => {
   const theme = useTheme(getTheme());
   const data = { nodes: data1 };
@@ -21,8 +19,7 @@ export const Table = ({data1}:any) => {
         Meta: (array) => array.sort((a, b) => a.meta_spend - b.meta_spend),
         Google: (array) => array.sort((a, b) => a.google_spend - b.google_spend),
         Revenue: (array) => array.sort((a, b) => a.revenue - b.revenue),
-        TASKS: (array) =>
-          array.sort((a, b) => (a.nodes || []).length - (b.nodes || []).length),
+        Influencer: (array) => array.sort((a, b) => a.influencer - b.influencer),
       },
     }
   );
@@ -30,9 +27,6 @@ export const Table = ({data1}:any) => {
   function onSortChange(action:any, state:any) {
     console.log(action, state);
   }
-
-
-
 
   const COLUMNS = [
     {
@@ -61,8 +55,9 @@ export const Table = ({data1}:any) => {
       sort: { sortKey: "Revenue" },
     },
     { 
-      label: 'Test',
-      renderCell: (item:any) => item.nodes?.length 
+      label: 'Influencer',
+      renderCell: (item:any) => item.influencer,
+      sort: { sortKey: "Influencer" },
     },
   ];
 

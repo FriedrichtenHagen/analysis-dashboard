@@ -40,6 +40,7 @@ export interface dataDay {
     id: number, 
     meta_spend: number, 
     revenue: number,
+    influencer: number,
 }
 export interface dataDayProps {
     data1: dataDay[]
@@ -75,6 +76,13 @@ export function Chart({data1}:dataDayProps){
                 borderColor: 'rgb(150, 162, 235)',
                 backgroundColor: 'rgba(153, 162, 235, 0.5)',
             },
+            {
+              label: 'influencer',
+              data: labels.map((_item, index)=> data1[index].influencer),
+              borderColor: 'rgb(150, 62, 235)',
+              backgroundColor: 'rgba(153, 162, 235, 0.5)',
+          },
+
 
 
         ]
