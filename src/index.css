@@ -68,8 +68,13 @@ button:focus-visible {
   display: flex;
   justify-content: space-between;
 }
-
-
+button.rs-dropdown-toggle.rs-btn.rs-btn-default{
+  background-color:#fff;
+  border: 1px solid #e5e5ea;
+}
+h1{
+  font-size: 2rem;
+}
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

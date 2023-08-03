@@ -1,19 +1,21 @@
 import { Dropdown } from 'rsuite';
 
-export function DropDown(){
-    function handleMenuClick(e){
-        console.log(e.target.value)
+export function DropDown({currentView, setCurrentView}:any){
+    
+    const menuItems = ['Overview Daily', 'Overview Monthly', 'Pie Chart Total Spend', 'Creative Performance', 'Best Days' ]
+
+
+    function handleMenuClick(e:any){
+        console.log(e.target.innerText)
+        const clickedView = e.target.innerText 
+        setCurrentView(clickedView)
     }
     return(
-        <div style={{backgroundColor:'#fff',
-            border: '1px solid #0000'}}>
             <Dropdown title="Menu" placement="bottomEnd">
-                <Dropdown.Item onClick={handleMenuClick}>Overview Daily</Dropdown.Item>
-                <Dropdown.Item onClick={handleMenuClick}>Monthly Overview</Dropdown.Item>
-                <Dropdown.Item onClick={handleMenuClick}>Pie Chart Total Spend</Dropdown.Item>
-                <Dropdown.Item onClick={handleMenuClick}>Creative Performance</Dropdown.Item>
-                <Dropdown.Item onClick={handleMenuClick}>Best Days</Dropdown.Item>
+                {menuItems.map((menuItem, i) => (
+                    <Dropdown.Item onClick={handleMenuClick} key={i}>         {menuItem}
+                    </Dropdown.Item>
+                ))}
             </Dropdown>
-        </div>
     )
 }
