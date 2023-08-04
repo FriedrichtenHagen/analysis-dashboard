@@ -37,6 +37,6 @@ export function DatePicker({ setData }:any) {
   }
 
   return (
-    <DateRangePicker style={{width: 225}} value={dataRange} onChange={setDateData}/>
+    <DateRangePicker style={{width: 198}} value={dataRange} onChange={setDateData}/>
   )
 }

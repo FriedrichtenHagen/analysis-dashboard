@@ -7,6 +7,5 @@ export function OverviewDaily(){
             <Chart data1={data}/>
             <Table data1={data}/>
         </>
-
     )
 }
