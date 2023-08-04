@@ -67,36 +67,23 @@ button:focus-visible {
 .header{
   display: flex;
   justify-content: space-between;
+  margin-bottom: 20px;
 }
 button.rs-dropdown-toggle.rs-btn.rs-btn-default{
   background-color:#fff;
   border: 1px solid #e5e5ea;
 
 }
+.rs-dropdown.rs-dropdown-placement-bottom-end{
+  padding-left: 110px;
+}
 h1{
   font-size: 2rem;
 }
-#menubutton{
-  padding-left: 110px;
-}
-.header{
-  margin-bottom: 20px;
-}
 
 
 
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
+
 
 

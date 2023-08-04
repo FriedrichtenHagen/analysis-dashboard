@@ -3,7 +3,6 @@ import { useTheme } from '@table-library/react-table-library/theme';
 import { getTheme } from '@table-library/react-table-library/baseline';
 import { useSort } from "@table-library/react-table-library/sort";
 
-
 export const Table = ({data1}:any) => {
   const theme = useTheme(getTheme());
   const data = { nodes: data1 };

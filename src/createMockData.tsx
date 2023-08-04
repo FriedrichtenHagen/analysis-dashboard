@@ -26,3 +26,14 @@ export default function createMockData(dataSetNumber:number, startDate:Date){
     return mockJson
 }
 
+export interface dataDay {
+    date: Date,
+    google_spend: number, 
+    id: number, 
+    meta_spend: number, 
+    revenue: number,
+    influencer: number,
+}
+export interface dataDayProps {
+    data1: dataDay[]
+}

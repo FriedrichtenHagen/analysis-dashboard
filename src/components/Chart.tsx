@@ -10,6 +10,7 @@ import {
   Legend,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
+import { dataDay, dataDayProps } from '../createMockData'
 
 ChartJS.register(
     CategoryScale,
@@ -34,17 +35,7 @@ ChartJS.register(
     },
   };
 
-export interface dataDay {
-    date: Date,
-    google_spend: number, 
-    id: number, 
-    meta_spend: number, 
-    revenue: number,
-    influencer: number,
-}
-export interface dataDayProps {
-    data1: dataDay[]
-}
+
 
 export function Chart({data1}:dataDayProps){
 
