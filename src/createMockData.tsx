@@ -1,5 +1,5 @@
 
-export default function createMockData(dataSetNumber:number, startDate:Date){
+export function createMockData(dataSetNumber:number, startDate:Date){
     const mockJson = []
 
     for(let i=0; i < dataSetNumber; i++){
@@ -32,20 +32,21 @@ let mockJson = createMockData(dataSetNumber, startDate)
 convertDataToMonthly(mockJson)
 
 
-function convertDataToMonthly(mockJson:any){
+export function convertDataToMonthly(mockJson:any){
     let monthlyData:any = [];
 
     for(let i=0; i<mockJson.length; i++){
         let addedDay = mockJson[i]
         let month = addedDay.date.getMonth()+1 // months are index starting at 0
         let year = addedDay.date.getFullYear()
-        if(!monthlyData.some(e => e.month === month && e.year === year)){
+        if(!monthlyData.some((e:any) => e.month === month && e.year === year)){
             // the object for this month does not exist yet
             monthlyData.push(
                 {
                     id: monthlyData.length,
                     month: month,
                     year: year, 
+                    date: month + '/' + year, 
                     meta_spend: addedDay.meta_spend,
                     google_spend: addedDay.google_spend,
                     revenue: addedDay.revenue,
@@ -79,13 +80,4 @@ export interface dataDay {
 }
 export interface dataDayProps {
     data1: dataDay[]
-}
-interface dataMonth {
-    month: string, 
-    year: string, 
-    google_spend: number, 
-    id: number, 
-    meta_spend: number, 
-    revenue: number,
-    influencer: number,
 }

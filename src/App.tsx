@@ -1,7 +1,8 @@
 import { Header } from './components/Header'
 import { useState } from 'react'
-import createMockData  from './createMockData'
+import { createMockData } from './createMockData'
 import { OverviewDaily } from './views/OverviewDaily'
+import { OverviewMonthly } from './views/OverviewMonthly'
 
 function App() {
   const startingDate = new Date()
@@ -11,10 +12,14 @@ function App() {
 
 
   let displayContent;
-  if(currentView === 'Overview Daily'){
-    displayContent = <OverviewDaily data={data}/>
-  } else if(currentView === 'Overview Monthly'){
-    displayContent = <>LOL</>
+  switch(currentView){
+    case 'Overview Daily':
+      displayContent = <OverviewDaily data={data}/>
+    break;
+    case 'Overview Monthly':
+      displayContent = <OverviewMonthly data={data}/>
+    break;
+
   }
 
   return (

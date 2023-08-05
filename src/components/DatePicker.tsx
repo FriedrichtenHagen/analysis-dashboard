@@ -1,7 +1,7 @@
 import { DateRangePicker } from 'rsuite';
 import 'rsuite/dist/rsuite.min.css';
 import { useState } from 'react'
-import createMockData  from '../createMockData'
+import { createMockData } from '../createMockData'
 
 
 export function DatePicker({ setData }:any) {
