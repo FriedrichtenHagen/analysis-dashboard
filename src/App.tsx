@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { createMockData } from './createMockData'
 import { OverviewDaily } from './views/OverviewDaily'
 import { OverviewMonthly } from './views/OverviewMonthly'
+import { PieChartTotalSpend } from './views/PieChartTotalSpend'
 
 function App() {
   const startingDate = new Date()
@@ -19,6 +20,9 @@ function App() {
     case 'Overview Monthly':
       displayContent = <OverviewMonthly data={data}/>
     break;
+    case 'Pie Chart Total Spend':
+      displayContent = <PieChartTotalSpend data={data}/>
+    break;
 
   }
 
@@ -27,7 +31,8 @@ function App() {
         <Header 
           setData={setData} 
           currentView={currentView}
-          setCurrentView={setCurrentView}/>       
+          setCurrentView={setCurrentView}/>   
+              
         {displayContent}
     </>
   )

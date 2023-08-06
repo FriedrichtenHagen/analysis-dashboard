@@ -22,16 +22,31 @@ export function createMockData(dataSetNumber:number, startDate:Date){
             influencer: influencer,
         })
     }
-    //console.log(mockJson)
     return mockJson
 }
-const dataSetNumber = 1;
-const startDate = new Date;
-let mockJson = createMockData(dataSetNumber, startDate)
+interface pieData {
+    meta_spend_total : number, 
+    google_spend_total: number, 
+    influencer_total: number, 
+}
+export function convertDataToPie(mockJson:any):pieData{
+    let meta_spend_total = 0;
+    let google_spend_total = 0;
+    let influencer_total = 0;
 
-convertDataToMonthly(mockJson)
+    mockJson.forEach((day:dataDay) => {
+        meta_spend_total += day.meta_spend
+        google_spend_total += day.google_spend
+        influencer_total += day.influencer
+        
 
-
+    });
+    return {
+        meta_spend_total : meta_spend_total,
+        google_spend_total : google_spend_total,
+        influencer_total : influencer_total,
+    }
+}
 export function convertDataToMonthly(mockJson:any){
     let monthlyData:any = [];
 
@@ -64,7 +79,6 @@ export function convertDataToMonthly(mockJson:any){
             correctMonthObject.influencer += addedDay.influencer
         }
     }
-    console.log(monthlyData)
     return monthlyData
 }
 

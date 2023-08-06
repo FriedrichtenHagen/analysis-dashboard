@@ -78,12 +78,8 @@ export function Chart({data1}:dataDayProps){
               borderColor: 'rgb(150, 62, 235)',
               backgroundColor: 'rgba(153, 162, 235, 0.5)',
           },
-
-
-
         ]
     }
-    console.log(convertedChartData)
 
     return <>
         <Line  style={{marginBottom: 100}} options={options} data={convertedChartData} />

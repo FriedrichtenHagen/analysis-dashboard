@@ -30,12 +30,19 @@ export const Table = ({data1}:any) => {
   const COLUMNS = [
     {
       label: 'Date',
-      renderCell: (item:any) =>
-        item.date.toLocaleDateString('de-DE', {
-          year: 'numeric',
-          month: '2-digit',
-          day: '2-digit',
-        }),
+      renderCell: (item:any) => {
+        if(item.date instanceof Date){
+          return item.date.toLocaleDateString('de-DE', {
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit',
+          })
+        } else{
+          return item.date
+        }
+      }
+       
+       ,
       sort: { sortKey: "Date" },
     },
     { 

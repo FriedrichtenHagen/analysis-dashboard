@@ -6,7 +6,6 @@ export function DropDown({currentView, setCurrentView}:any){
 
 
     function handleMenuClick(e:any){
-        console.log(e.target.innerText)
         const clickedView = e.target.innerText 
         setCurrentView(clickedView)
     }
