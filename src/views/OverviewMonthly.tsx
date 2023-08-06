@@ -1,12 +1,12 @@
-import { PieChart } from '../components/PieChart'
 import { convertDataToMonthly } from '../createMockData'
+import { Chart } from '../components/Chart'
 
 export function OverviewMonthly({ data }:any){
     let monthlyData = convertDataToMonthly(data)
 
     return(
         <>
-            <PieChart monthlyData={monthlyData}/>
+            <Chart data1={monthlyData}/>
         </>
     )
 }

@@ -42,7 +42,12 @@ export function Chart({data1}:dataDayProps){
     // convert data to correct format for the chart
     let labels:string[] = [];
     data1.map((dataset:dataDay) =>{
-        labels.push(dataset.date.toLocaleDateString('de-DE'))
+        if(dataset.date instanceof Date){
+          labels.push(dataset.date.toLocaleDateString('de-DE'))
+        } else{
+          labels.push(dataset.date)
+        }
+
     })
 
 

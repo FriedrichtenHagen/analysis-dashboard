@@ -5,13 +5,9 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 
 
-export function PieChart({monthlyData}) {
+export function PieChart({}) {
 
 
-    
-    let monthlyLabels = monthlyData.map(month => month.date);
-    console.log(monthlyLabels)
-    
 
     const data = {
         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
