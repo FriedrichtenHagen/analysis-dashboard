@@ -4,12 +4,13 @@ import { createMockData } from './createMockData'
 import { OverviewDaily } from './views/OverviewDaily'
 import { OverviewMonthly } from './views/OverviewMonthly'
 import { PieChartTotalSpend } from './views/PieChartTotalSpend'
+import { CreativePerformance } from './views/CreativePerformance'
 
 function App() {
   const startingDate = new Date()
   const [data, setData] = useState(createMockData(30, startingDate))
   const [currentView, setCurrentView] = useState('Overview Daily')
-
+ 
   let displayContent;
   switch(currentView){
     case 'Overview Daily':
@@ -20,6 +21,9 @@ function App() {
     break;
     case 'Pie Chart Total Spend':
       displayContent = <PieChartTotalSpend data={data}/>
+    break;
+    case 'Creative Performance':
+      displayContent = <CreativePerformance data={data}/>
     break;
 
   }
