@@ -67,8 +67,8 @@ export const Table = ({data1}:any) => {
     },
   ];
 
-  return <div style={{height: '400px'}}>
-    <CompactTable style={{height: '100px',}} columns={COLUMNS} layout={{ fixedHeader: true }} data={data} theme={theme} sort={sort} />
+  return <div style={{height: '300px'}}>
+    <CompactTable columns={COLUMNS} layout={{ fixedHeader: true }} data={data} theme={theme} sort={sort} />
   </div>
   
   

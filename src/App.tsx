@@ -10,8 +10,6 @@ function App() {
   const [data, setData] = useState(createMockData(30, startingDate))
   const [currentView, setCurrentView] = useState('Overview Daily')
 
-
-
   let displayContent;
   switch(currentView){
     case 'Overview Daily':
@@ -32,7 +30,7 @@ function App() {
           setData={setData} 
           currentView={currentView}
           setCurrentView={setCurrentView}/>   
-              
+
         {displayContent}
     </>
   )
