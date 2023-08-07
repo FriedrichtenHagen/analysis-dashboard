@@ -12,6 +12,18 @@ interface NumberBoxProps {
 
 export function NumberBox({ data, head, devUp, value }:NumberBoxProps){
 
+
+    function calculateCurrentSums(data){
+        
+        
+        return {
+            google_spend: 345345,
+            meta_spend: 3453,
+            influencer_spend: 3453,
+            revenue: 546456,
+        }
+    }
+
     const [developmentUp, setDevelopmentUp] = useState(devUp)
     const arrowIcon = developmentUp ? arrowUp : arrowDown
 
