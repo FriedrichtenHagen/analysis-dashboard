@@ -1,18 +1,25 @@
 import { NumberBox } from './NumberBox'
 import { dataDay } from '../createMockData'
+import { useEffect, useState } from 'react'
 
 export function GridNumberBox({ data }:any){
-
+    const [monthData, setMonthData] = useState<MonthData>({
+        google_sum: 0,
+        meta_sum: 0,
+        influencer_sum: 0,            
+        revenue_sum: 0,
+    })
     const head1 = 'Google Spend'
     const head2 = 'Facebook Spend'
     const head3 = 'Influencer'
     const head4 = 'Revenue'
-    const value1 = 9532
-    const value2 = 2862
-    const value3 = 9302
-    const value4 = 2042
 
-    function calculateCurrentSums(data:any){
+    useEffect(() => {
+        let calculatedMonthData = calculateCurrentSums(data)
+        setMonthData(calculatedMonthData)
+    }, [data])
+
+    function calculateCurrentSums(data:any):MonthData{
         let google_sum = 0;
         let meta_sum = 0;
         let influencer_sum = 0;
@@ -33,14 +40,19 @@ export function GridNumberBox({ data }:any){
             revenue_sum,
         }
     }
-    const summedKpis = calculateCurrentSums(data)
+    interface MonthData {
+        google_sum: number,
+        meta_sum: number,
+        influencer_sum: number,            
+        revenue_sum: number,
+    }
 
     return(
         <div className="gridBox">
-            <NumberBox head={head1} devUp={true} value={summedKpis.google_sum}/>
-            <NumberBox head={head2} devUp={false} value={value2}/>
-            <NumberBox head={head3} devUp={true} value={value3}/>
-            <NumberBox head={head4} devUp={false} value={value4}/>
+            <NumberBox head={head1} devUp={true} value={monthData.google_sum}/>
+            <NumberBox head={head2} devUp={false} value={monthData.meta_sum}/>
+            <NumberBox head={head3} devUp={true} value={monthData.influencer_sum}/>
+            <NumberBox head={head4} devUp={false} value={monthData.revenue_sum}/>
         </div>
     )
 }
