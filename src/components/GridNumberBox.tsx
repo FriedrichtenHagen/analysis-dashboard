@@ -1,4 +1,5 @@
 import { NumberBox } from './NumberBox'
+import { dataDay } from '../createMockData'
 
 export function GridNumberBox({ data }:any){
 
@@ -12,20 +13,31 @@ export function GridNumberBox({ data }:any){
     const value4 = 2042
 
     function calculateCurrentSums(data:any){
-        
+        let google_sum = 0;
+        let meta_sum = 0;
+        let influencer_sum = 0;
+        let revenue_sum = 0;
+
+        data.forEach((day:dataDay) => {
+            google_sum += day.google_spend
+            meta_sum += day.meta_spend
+            influencer_sum += day.influencer
+            revenue_sum += day.revenue
+        });
+
         console.log(data)
         return {
-            google_spend: 345345,
-            meta_spend: 3453,
-            influencer_spend: 3453,
-            revenue: 546456,
+            google_sum,
+            meta_sum,
+            influencer_sum,            
+            revenue_sum,
         }
     }
-    calculateCurrentSums(data)
+    const summedKpis = calculateCurrentSums(data)
 
     return(
         <div className="gridBox">
-            <NumberBox head={head1} devUp={true} value={value1}/>
+            <NumberBox head={head1} devUp={true} value={summedKpis.google_sum}/>
             <NumberBox head={head2} devUp={false} value={value2}/>
             <NumberBox head={head3} devUp={true} value={value3}/>
             <NumberBox head={head4} devUp={false} value={value4}/>
