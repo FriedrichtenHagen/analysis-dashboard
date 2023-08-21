@@ -1,7 +1,6 @@
 import arrowDown from '../assets/arrow-down-red.png'
 import arrowUp from '../assets/arrow-up-green.png'
 import { useState } from 'react'
-import { dataDayProps } from '../createMockData'
 
 interface NumberBoxProps {
     head: string, 
@@ -14,7 +13,7 @@ export function NumberBox({ head, devUp, value }:NumberBoxProps){
 
 
 
-    const [developmentUp, setDevelopmentUp] = useState(devUp)
+    const [developmentUp] = useState(devUp)
     const arrowIcon = developmentUp ? arrowUp : arrowDown
 
     return(

@@ -7,7 +7,6 @@ export function Header({ setData, currentView, setCurrentView}:any){
             <DatePicker setData={setData}/>
             <h1>{currentView}</h1>
             <DropDown 
-                currentView={currentView} 
                 setCurrentView={setCurrentView}/>
         </div>
 

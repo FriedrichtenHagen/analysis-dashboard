@@ -1,6 +1,6 @@
 import { NumberBox } from './NumberBox'
 
-export function GridNumberBox({ data }){
+export function GridNumberBox({ data }:any){
 
     const head1 = 'Google Spend'
     const head2 = 'Facebook Spend'
@@ -11,9 +11,9 @@ export function GridNumberBox({ data }){
     const value3 = 9302
     const value4 = 2042
 
-    function calculateCurrentSums(data){
+    function calculateCurrentSums(data:any){
         
-        
+        console.log(data)
         return {
             google_spend: 345345,
             meta_spend: 3453,
@@ -21,7 +21,7 @@ export function GridNumberBox({ data }){
             revenue: 546456,
         }
     }
-    
+    calculateCurrentSums(data)
 
     return(
         <div className="gridBox">

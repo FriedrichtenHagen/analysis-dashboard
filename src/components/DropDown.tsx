@@ -1,6 +1,6 @@
 import { Dropdown } from 'rsuite';
 
-export function DropDown({currentView, setCurrentView}:any){
+export function DropDown({setCurrentView}:any){
     
     const menuItems = ['Overview Daily', 'Overview Monthly', 'Pie Chart Total Spend', 'Creative Performance', 'Best Days' ]
 
