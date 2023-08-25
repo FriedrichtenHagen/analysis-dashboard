@@ -24,6 +24,14 @@ export function DatePicker({ setData }:any) {
       const startDate = startAndEndDate[0]
       const endDate = startAndEndDate[1]
       setDataRange([startDate, endDate])
+
+
+      // add api call here with startDate and endDate
+
+
+      
+      // setData(result of api call)
+
       const numberOfDaysInRange = daysBetweenTwoDates(startDate, endDate)
       const mockData = createMockData(numberOfDaysInRange, startDate)
       setData(mockData)

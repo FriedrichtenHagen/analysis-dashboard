@@ -95,3 +95,6 @@ export interface dataDay {
 export interface dataDayProps {
     data1: dataDay[]
 }
+
+
+

@@ -5,6 +5,7 @@ import { OverviewDaily } from './views/OverviewDaily'
 import { OverviewMonthly } from './views/OverviewMonthly'
 import { PieChartTotalSpend } from './views/PieChartTotalSpend'
 import { CreativePerformance } from './views/CreativePerformance'
+import { BestDays } from './views/BestDays'
 
 function App() {
   const startingDate = new Date()
@@ -24,6 +25,9 @@ function App() {
     break;
     case 'Creative Performance':
       displayContent = <CreativePerformance data={data}/>
+    break;
+    case 'Best Days':
+      displayContent = <BestDays data={data}/>
     break;
 
   }

@@ -9,24 +9,24 @@ export function GridNumberBox({ data }:any){
         influencer_sum: 0,            
         revenue_sum: 0,
     })
-    const [diffToPrevPeriod, setDiffToPrevPeriod] = useState<DiffToPrevPeriod>({
-        google_diff: 0,
-        meta_diff: 0,
-        influencer_diff: 0,            
-        revenue_diff: 0,
-    })
+    // const [diffToPrevPeriod, setDiffToPrevPeriod] = useState<DiffToPrevPeriod>({
+    //     google_diff: 0,
+    //     meta_diff: 0,
+    //     influencer_diff: 0,            
+    //     revenue_diff: 0,
+    // })
     interface MonthData {
         google_sum: number,
         meta_sum: number,
         influencer_sum: number,            
         revenue_sum: number,
     }
-    interface DiffToPrevPeriod {
-        google_diff: number,
-        meta_diff: number,
-        influencer_diff: number,            
-        revenue_diff: number,
-    }
+    // interface DiffToPrevPeriod {
+    //     google_diff: number,
+    //     meta_diff: number,
+    //     influencer_diff: number,            
+    //     revenue_diff: number,
+    // }
 
     const head1 = 'Google Spend'
     const head2 = 'Facebook Spend'
@@ -61,17 +61,17 @@ export function GridNumberBox({ data }:any){
             }
         }
 
-        function calculateDiffToPrevPeriod(data:any):DiffToPrevPeriod{
-            const periodLength = data.length
+        // function calculateDiffToPrevPeriod(data:any):DiffToPrevPeriod{
+        //     const periodLength = data.length
             
 
-            return{
-                google_diff,
-                meta_diff,
-                influencer_diff,            
-                revenue_diff,
-            }
-        }
+        //     return{
+        //         google_diff,
+        //         meta_diff,
+        //         influencer_diff,            
+        //         revenue_diff,
+        //     }
+        // }
         
         setMonthData(calculatedMonthData)
     }, [data])
