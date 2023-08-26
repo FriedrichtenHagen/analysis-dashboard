@@ -2,16 +2,16 @@ export function createMockDataToInsertIntoMySQL(){
 
 
 
-    const insert_statement = "INSERT INTO daily_transactions(order_id,date,net_revenue,google_spend,meta_spend,influencer_spend, new_customers) VALUES"
+    const insert_statement = "INSERT INTO daily_transactions(date, net_revenue,google_spend,meta_spend,influencer_spend, new_customers) VALUES"
     // (1, )
     // (1,'JavaScript',1995,1,3,7), 
     // (2,'Python',1991,2,1,3),"
-    const inserts = []
+    let inserts = ""
 
-    const numberOfDatasets = 4000;
+    const numberOfDatasets = 2000;
     const startDate = new Date(2022, 0, 1)
 
-    for(let i=0; i < numberOfDatasets;){
+    for(let i=0; i < numberOfDatasets; i++){
         // increment the date by i
         let clone = structuredClone(startDate)
         clone.setDate(clone.getDate() + i)
@@ -26,13 +26,13 @@ export function createMockDataToInsertIntoMySQL(){
             let influencer = Math.floor(Math.random()*300)+2000
             let new_customers = Math.floor(Math.random()*30)+20
 
-            inserts.push(`(${i},)`)
-            i++
-            //  ${clone}, ${revenue}, ${google_spend}, ${meta_spend}, ${influencer}, ${new_customers}
+            inserts += ` (NULL,'${clone.toISOString().slice(0, 19).replace('T', ' ')}', ${revenue}, ${google_spend}, ${meta_spend}, ${influencer}, ${new_customers}),`
         }
     }
     console.log(inserts)
 
 }
 
-createMockDataToInsertIntoMySQL()
+
+
+
