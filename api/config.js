@@ -4,11 +4,14 @@ const config = {
     db: {
       /* don't expose password or any sensitive info, done only for demo */
       host: "db4free.net",
-      user: process.env.USER,
+      user: process.env.MYSQLUSER,
       password: process.env.PASSWORD,
-      database: process.env.database,
+      database: process.env.DATABASE,
       connectTimeout: 60000
-    },
-    listPerPage: 10,
+    }
   };
+
+
+  console.log(config.db)
+
   module.exports = config;
