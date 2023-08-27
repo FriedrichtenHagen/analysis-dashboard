@@ -9,20 +9,18 @@ async function getDailyTransactions(startDate, endDate){
         console.log('no date was transmited')
     }
 
-
-
     const sqlQuery = 
     `SELECT 
-        order_id,
         date, 
-        google_spend, 
-        meta_spend, 
-        influencer_spend, 
-        net_revenue, 
-        new_customers   
+        SUM(google_spend) AS google_spend, 
+        SUM(meta_spend) AS meta_spend, 
+        SUM(influencer_spend) AS influencer_spend, 
+        SUM(net_revenue) AS net_revenue, 
+        SUM(new_customers) AS new_customers   
     FROM daily_transactions 
     WHERE date > '${startDate}'
         AND date < '${endDate}'
+    GROUP BY date
     ORDER BY date`
 
     console.log(sqlQuery)
