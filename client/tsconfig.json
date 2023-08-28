@@ -20,6 +20,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "../api/insertStatement.tsx"],
+  "include": ["src", "../api/insertStatement.tsx", "utils/createMockData.tsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

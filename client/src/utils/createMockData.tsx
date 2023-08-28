@@ -85,12 +85,13 @@ export function convertDataToMonthly(mockJson:any){
 
 
 export interface dataDay {
-    date: Date,
+    date: string,
     google_spend: number, 
     id: number, 
     meta_spend: number, 
     revenue: number,
     influencer: number,
+    new_customers: number,
 }
 export interface dataDayProps {
     data1: dataDay[]

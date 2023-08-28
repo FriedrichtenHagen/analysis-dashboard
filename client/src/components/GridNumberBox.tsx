@@ -1,5 +1,5 @@
 import { NumberBox } from './NumberBox'
-import { dataDay } from '../createMockData'
+import { dataDay } from '../utils/createMockData'
 import { useEffect, useState } from 'react'
 
 export function GridNumberBox({ data }:any){

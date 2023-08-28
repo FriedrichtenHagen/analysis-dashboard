@@ -1,4 +1,4 @@
-import { convertDataToMonthly } from '../createMockData'
+import { convertDataToMonthly } from '../utils/createMockData'
 import { Chart } from '../components/Chart'
 import { Table } from '../components/Table'
 

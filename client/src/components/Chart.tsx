@@ -10,7 +10,7 @@ import {
   Legend,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
-import { dataDay, dataDayProps } from '../createMockData'
+import { dataDay, dataDayProps } from '../utils/createMockData'
 
 ChartJS.register(
     CategoryScale,
@@ -45,9 +45,8 @@ export function Chart({data1}:dataDayProps){
         if(dataset.date instanceof Date){
           labels.push(dataset.date.toLocaleDateString('de-DE'))
         } else{
-          labels.push(dataset.date)
+          labels.push(dataset.date.slice(0, 10).replace('T', ' '))
         }
-
     })
 
 

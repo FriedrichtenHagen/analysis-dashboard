@@ -1,6 +1,6 @@
 import { Header } from './components/Header'
 import { useState } from 'react'
-import { createMockData } from './createMockData'
+import { createMockData } from './utils/createMockData'
 import { OverviewDaily } from './views/OverviewDaily'
 import { OverviewMonthly } from './views/OverviewMonthly'
 import { PieChartTotalSpend } from './views/PieChartTotalSpend'

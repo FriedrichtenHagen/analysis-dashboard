@@ -4,11 +4,11 @@ import { fetchData } from "../access-api/fetchData"
 
 
 export function BestDays({ data }:any){
-    const url = 'https://pokeapi.co/api/v2/pokemon/ditto'
+    // const url = 'http://localhost:3000/daily-transactions?start=2022-01-01&end=2022-01-05'
 
 
-    fetchData(url)
-        .then(x => console.log(x))
+    // fetchData(url)
+    //     .then(x => console.log(x))
     
 
     return(
