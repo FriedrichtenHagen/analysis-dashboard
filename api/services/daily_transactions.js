@@ -14,8 +14,8 @@ async function getDailyTransactions(startDate, endDate){
         date, 
         SUM(google_spend) AS google_spend, 
         SUM(meta_spend) AS meta_spend, 
-        SUM(influencer_spend) AS influencer_spend, 
-        SUM(net_revenue) AS net_revenue, 
+        SUM(influencer) AS influencer, 
+        SUM(revenue) AS revenue, 
         SUM(new_customers) AS new_customers   
     FROM daily_transactions 
     WHERE date > '${startDate}'
