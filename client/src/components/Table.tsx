@@ -38,7 +38,7 @@ export const Table = ({data1}:any) => {
             day: '2-digit',
           })
         } else{
-          return item.date
+          return item.date.slice(0, 10).replace('T', ' ')
         }
       }
        
