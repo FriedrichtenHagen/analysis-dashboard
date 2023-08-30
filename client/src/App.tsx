@@ -16,7 +16,7 @@ function App() {
   useEffect(() =>{
     const startDate = new Date()
     const endDate = new Date()
-    endDate.setDate(startDate.getDate() - 30)
+    startDate.setDate(endDate.getDate() - 30)
 
 
     async function getDailyDataForDateRange(startDate:Date, endDate:Date){
@@ -58,7 +58,12 @@ function App() {
     case 'Best Days':
       displayContent = <BestDays data={data}/>
     break;
-
+  }
+  let loadingSpinner;
+  if(loading){
+    loadingSpinner = <>LOLOL</>
+  } else{
+    loadingSpinner = null
   }
 
   return (
@@ -66,8 +71,9 @@ function App() {
         <Header 
           setData={setData} 
           currentView={currentView}
-          setCurrentView={setCurrentView}/>   
-
+          setCurrentView={setCurrentView}
+        />   
+        {loadingSpinner}
         {displayContent}
     </>
   )
