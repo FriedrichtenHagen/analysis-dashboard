@@ -5,6 +5,11 @@ import { Table } from '../components/Table'
 export function OverviewMonthly({ data }:any){
     let monthlyData = convertDataToMonthly(data)
 
+
+
+
+
+    
     return(
         <>
             <Chart data1={monthlyData}/>

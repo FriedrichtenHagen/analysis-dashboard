@@ -49,11 +49,22 @@ export function convertDataToPie(mockJson:any):pieData{
 }
 export function convertDataToMonthly(mockJson:any){
     let monthlyData:any = [];
-
+    console.log(mockJson)
     for(let i=0; i<mockJson.length; i++){
         let addedDay = mockJson[i]
-        let month = addedDay.date.getMonth()+1 // months are index starting at 0
-        let year = addedDay.date.getFullYear()
+
+        
+
+        // old version using date object: 
+        // let month = addedDay.date.getMonth()+1 // months are index starting at 0
+        // let year = addedDay.date.getFullYear()
+
+        // new version using date string from database:
+        // example: '2023-08-01T22:00:00.000Z'
+        let month = parseInt(addedDay.date.slice(5,7))
+        let year = parseInt(addedDay.date.slice(0, 4))
+        console.log(month, year)
+
         if(!monthlyData.some((e:any) => e.month === month && e.year === year)){
             // the object for this month does not exist yet
             monthlyData.push(
@@ -62,10 +73,10 @@ export function convertDataToMonthly(mockJson:any){
                     month: month,
                     year: year, 
                     date: month + '/' + year, 
-                    meta_spend: addedDay.meta_spend,
-                    google_spend: addedDay.google_spend,
-                    revenue: addedDay.revenue,
-                    influencer: addedDay.influencer,
+                    meta_spend: parseInt(addedDay.meta_spend),
+                    google_spend: parseInt(addedDay.google_spend),
+                    revenue: parseInt(addedDay.revenue),
+                    influencer: parseInt(addedDay.influencer),
                 }
             )
         } else{
@@ -73,10 +84,10 @@ export function convertDataToMonthly(mockJson:any){
             // find the correct month for adding values
             let correctMonthObject = monthlyData.find((monthObj:any) => monthObj.month === month)
             // add day data to month object
-            correctMonthObject.meta_spend += addedDay.meta_spend
-            correctMonthObject.google_spend += addedDay.google_spend
-            correctMonthObject.revenue += addedDay.revenue
-            correctMonthObject.influencer += addedDay.influencer
+            correctMonthObject.meta_spend += parseInt(addedDay.meta_spend)
+            correctMonthObject.google_spend += parseInt(addedDay.google_spend)
+            correctMonthObject.revenue += parseInt(addedDay.revenue)
+            correctMonthObject.influencer += parseInt(addedDay.influencer)
         }
     }
     return monthlyData

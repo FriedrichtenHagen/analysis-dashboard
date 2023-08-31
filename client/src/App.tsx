@@ -6,6 +6,7 @@ import { OverviewMonthly } from './views/OverviewMonthly'
 import { PieChartTotalSpend } from './views/PieChartTotalSpend'
 import { CreativePerformance } from './views/CreativePerformance'
 import { BestDays } from './views/BestDays'
+import { Dna } from 'react-loader-spinner'
 
 function App() {
 
@@ -59,12 +60,6 @@ function App() {
       displayContent = <BestDays data={data}/>
     break;
   }
-  let loadingSpinner;
-  if(loading){
-    loadingSpinner = <>LOLOL</>
-  } else{
-    loadingSpinner = null
-  }
 
   return (
     <>
@@ -73,7 +68,14 @@ function App() {
           currentView={currentView}
           setCurrentView={setCurrentView}
         />   
-        {loadingSpinner}
+        <Dna  
+          visible={loading}
+          height="180"
+          width="180"
+          ariaLabel="dna-loading"
+          wrapperStyle={{}}
+          wrapperClass="dna-wrapper"
+        />
         {displayContent}
     </>
   )
