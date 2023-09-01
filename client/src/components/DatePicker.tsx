@@ -3,7 +3,7 @@ import 'rsuite/dist/rsuite.min.css';
 import { useState } from 'react'
 import { fetchData } from '../access-api/fetchData';
 
-export function DatePicker({ setData }:any) {
+export function DatePicker({ setData, toggleLoadingState }:any) {
   // make the initial date range the current day minus 30
   const defaultStartDate = new Date
   const defaultEndDate = new Date
@@ -33,6 +33,7 @@ export function DatePicker({ setData }:any) {
 
 
   function getDailyDataForDateRange(startDate:Date, endDate:Date){
+    toggleLoadingState(true)
     const startDateIso = startDate.toISOString().slice(0, 10).replace('T', ' ')
     const endDateIso = endDate.toISOString().slice(0, 10).replace('T', ' ')
 
@@ -44,6 +45,8 @@ export function DatePicker({ setData }:any) {
       .then((res) => setData(res))
     // transform data to match frontend specifications
       // transform date to Date Object?: 
+
+     toggleLoadingState(false)   
   }
 
   return (

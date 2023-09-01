@@ -21,7 +21,7 @@ function App() {
 
 
     async function getDailyDataForDateRange(startDate:Date, endDate:Date){
-      setLoading(true)
+      toggleLoadingState(true)
       const startDateIso = startDate.toISOString().slice(0, 10).replace('T', ' ')
       const endDateIso = endDate.toISOString().slice(0, 10).replace('T', ' ')
       // add api call here with startDate and endDate
@@ -34,13 +34,15 @@ function App() {
       console.log(data)
       // transform data to match frontend specifications
         // transform date to Date Object?: 
-        console.log('test')
-        setLoading(false)
+      console.log('test')
+      toggleLoadingState(false)
     }
     getDailyDataForDateRange(startDate, endDate)
   },[])
 
-
+  function toggleLoadingState(status:boolean){
+    setLoading(status)
+  }
 
   let displayContent;
   switch(currentView){
@@ -63,8 +65,10 @@ function App() {
 
   return (
     <>
+
         <Header 
           setData={setData} 
+          toggleLoadingState={toggleLoadingState}
           currentView={currentView}
           setCurrentView={setCurrentView}
         />   
