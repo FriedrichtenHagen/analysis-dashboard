@@ -32,17 +32,21 @@ export function DatePicker({ setData, toggleLoadingState }:any) {
   }
 
 
-  function getDailyDataForDateRange(startDate:Date, endDate:Date){
+  async function getDailyDataForDateRange(startDate:Date, endDate:Date){
     toggleLoadingState(true)
     const startDateIso = startDate.toISOString().slice(0, 10).replace('T', ' ')
     const endDateIso = endDate.toISOString().slice(0, 10).replace('T', ' ')
 
     // add api call here with startDate and endDate
     const url = `http://localhost:3000/daily-transactions?start=${startDateIso}&end=${endDateIso}`
-    fetchData(url)
-      // display loading spinner
+    // fetchData(url)
+    //   // display loading spinner
 
-      .then((res) => setData(res))
+    //   .then((res) => setData(res))
+    const res = await fetchData(url)
+        // display loading spinner
+      console.log(res)
+      setData(res)
     // transform data to match frontend specifications
       // transform date to Date Object?: 
 
