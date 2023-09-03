@@ -8,6 +8,7 @@ import { dataDayProps } from '../utils/createMockData';
 export function PieChart({ data1 } :dataDayProps) {
 
   let pieData = convertDataToPie(data1)
+  console.log(pieData)
   let labels = ['Meta Spend', 'Google Spend', 'Influencer Spend']
 
 

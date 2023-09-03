@@ -29,15 +29,15 @@ interface pieData {
     google_spend_total: number, 
     influencer_total: number, 
 }
-export function convertDataToPie(mockJson:any):pieData{
+export function convertDataToPie(data:dataDayProps):pieData{
     let meta_spend_total = 0;
     let google_spend_total = 0;
     let influencer_total = 0;
 
-    mockJson.forEach((day:dataDay) => {
-        meta_spend_total += day.meta_spend
-        google_spend_total += day.google_spend
-        influencer_total += day.influencer
+    data.forEach((day:dataDay) => {
+        meta_spend_total += parseInt(day.meta_spend)
+        google_spend_total += parseInt(day.google_spend)
+        influencer_total += parseInt(day.influencer)
         
 
     });
@@ -97,16 +97,17 @@ export function convertDataToMonthly(mockJson:any){
 
 export interface dataDay {
     date: string,
-    google_spend: number, 
-    id: number, 
-    meta_spend: number, 
-    revenue: number,
-    influencer: number,
-    new_customers: number,
+    google_spend: string, 
+    id: string, 
+    meta_spend: string, 
+    revenue: string,
+    influencer: string,
+    new_customers: string,
 }
 export interface dataDayProps {
     data1: dataDay[]
 }
+
 
 
 
