@@ -29,7 +29,7 @@ interface pieData {
     google_spend_total: number, 
     influencer_total: number, 
 }
-export function convertDataToPie(data:dataDayProps):pieData{
+export function convertDataToPie(data:dataDay[]):pieData{
     let meta_spend_total = 0;
     let google_spend_total = 0;
     let influencer_total = 0;
@@ -47,11 +47,11 @@ export function convertDataToPie(data:dataDayProps):pieData{
         influencer_total : influencer_total,
     }
 }
-export function convertDataToMonthly(mockJson:any){
+export function convertDataToMonthly(data:dataDay[]){
     let monthlyData:any = [];
-    console.log(mockJson)
-    for(let i=0; i<mockJson.length; i++){
-        let addedDay = mockJson[i]
+    console.log(data)
+    for(let i=0; i<data.length; i++){
+        let addedDay = data[i]
 
         
 
@@ -104,9 +104,7 @@ export interface dataDay {
     influencer: string,
     new_customers: string,
 }
-export interface dataDayProps {
-    data1: dataDay[]
-}
+
 
 
 

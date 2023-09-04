@@ -9,12 +9,6 @@ export function GridNumberBox({ data }:any){
         influencer_sum: 0,            
         revenue_sum: 0,
     })
-    // const [diffToPrevPeriod, setDiffToPrevPeriod] = useState<DiffToPrevPeriod>({
-    //     google_diff: 0,
-    //     meta_diff: 0,
-    //     influencer_diff: 0,            
-    //     revenue_diff: 0,
-    // })
     interface MonthData {
         google_sum: number,
         meta_sum: number,
