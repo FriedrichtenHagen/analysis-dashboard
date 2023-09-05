@@ -40,10 +40,10 @@ export function GridNumberBox({ data }:any){
             let revenue_sum = 0;
     
             data.forEach((day:dataDay) => {
-                google_sum += day.google_spend
-                meta_sum += day.meta_spend
-                influencer_sum += day.influencer
-                revenue_sum += day.revenue
+                google_sum += parseInt(day.google_spend)
+                meta_sum += parseInt(day.meta_spend)
+                influencer_sum += parseInt(day.influencer)
+                revenue_sum += parseInt(day.revenue)
             });
     
             console.log(data)
