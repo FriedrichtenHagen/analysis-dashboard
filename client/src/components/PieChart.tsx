@@ -2,12 +2,11 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
 import { convertDataToPie } from '../utils/createMockData';
 ChartJS.register(ArcElement, Tooltip, Legend);
-import { dataDay } from '../utils/createMockData';
+import { DataDayProps } from '../views/PieChartTotalSpend';
 
+export function PieChart({dataDay}:DataDayProps) {
 
-export function PieChart({data1}) {
-
-  let pieData = convertDataToPie(data1)
+  let pieData = convertDataToPie(dataDay)
   console.log(pieData)
   let labels = ['Meta Spend', 'Google Spend', 'Influencer Spend']
 

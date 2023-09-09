@@ -1,10 +1,12 @@
 function testComponent(){
     const one = 1234234
-    const two = 'alsdkfja'
     const three = {
         name: 'Tom', 
         age: 34,
-        money: 453,
+        money: {
+            amount: 345,
+            currency: 'EURO'
+        },
     }
     
     
@@ -20,14 +22,18 @@ function testComponent(){
 interface ChildProps{
     data: {
         name: String,
-        age: Number, 
+        age: Number,
+        money: {
+            amount: Number,
+            currency: String, 
+        }, 
     }, 
     test: Number,
 }
 
-function ChildComponent({data, test}:ChildProps){
-    
-    console.log(data.age, test.toString())
+function ChildComponent({data:{money:{currency}}, test}:ChildProps){
+    // multilayer destructuring and simple destructuring
+    console.log(currency, test.toString())
 
     return(
 
