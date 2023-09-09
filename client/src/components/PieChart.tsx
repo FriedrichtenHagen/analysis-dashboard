@@ -5,7 +5,7 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 import { dataDay } from '../utils/createMockData';
 
 
-export function PieChart({data1}:dataDay[]) {
+export function PieChart({data1}) {
 
   let pieData = convertDataToPie(data1)
   console.log(pieData)
