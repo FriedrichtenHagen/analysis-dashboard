@@ -1,12 +1,13 @@
 import {Chart} from '../components/Chart'
 import {Table} from '../components/Table'
+import { transactionDataProps } from '../types/types'
 
 
-export function OverviewDaily({ data }:any){
+export function OverviewDaily({ transactionData }:transactionDataProps){
     return(
         <>
-            <Chart data1={data}/>
-            <Table data1={data}/>
+            <Chart transactionData={transactionData}/>
+            <Table transactionData={transactionData}/>
         </>
     )
 }

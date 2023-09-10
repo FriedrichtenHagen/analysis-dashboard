@@ -1,16 +1,12 @@
 import { PieChart } from '../components/PieChart'
-import { dataDay } from '../utils/createMockData'
+import { transactionDataProps } from '../types/types'
 
-export function PieChartTotalSpend({ data }:any){
+export function PieChartTotalSpend({ transactionData }:transactionDataProps){
     return(
         <div className='test' style={{width:500}}>
-            <PieChart dataDay={data}/>
+            <PieChart transactionData={transactionData}/>
         </div>
     )
 }
 
-
-export interface DataDayProps{
-    dataDay: dataDay[] 
-}
 

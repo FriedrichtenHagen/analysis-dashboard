@@ -2,13 +2,14 @@ import { CompactTable } from '@table-library/react-table-library/compact';
 import { useTheme } from '@table-library/react-table-library/theme';
 import { getTheme } from '@table-library/react-table-library/baseline';
 import { useSort } from "@table-library/react-table-library/sort";
+import { transactionDataProps } from '../types/types';
 
-export const Table = ({data1}:any) => {
+export const Table = ({transactionData}:transactionDataProps) => {
   const theme = useTheme(getTheme());
-  const data = { nodes: data1 };
+  const data = { nodes: transactionData };
 
   const sort = useSort(
-    data1,
+    transactionData,
     {
       onChange: onSortChange,
     },

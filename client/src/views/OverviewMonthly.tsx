@@ -1,9 +1,10 @@
 import { convertDataToMonthly } from '../utils/createMockData'
 import { Chart } from '../components/Chart'
 import { Table } from '../components/Table'
+import { transactionDataProps } from '../types/types'
 
-export function OverviewMonthly({ data }:any){
-    let monthlyData = convertDataToMonthly(data)
+export function OverviewMonthly({ transactionData }:transactionDataProps){
+    let monthlyData = convertDataToMonthly(transactionData)
 
 
 
@@ -12,8 +13,8 @@ export function OverviewMonthly({ data }:any){
     
     return(
         <>
-            <Chart data1={monthlyData}/>
-            <Table data1={monthlyData}/>
+            <Chart transactionData={monthlyData}/>
+            <Table transactionData={monthlyData}/>
         </>
     )
 }

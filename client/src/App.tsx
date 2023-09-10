@@ -10,7 +10,7 @@ import { Dna } from 'react-loader-spinner'
 
 function App() {
 
-  const [data, setData] = useState([])
+  const [transactionData, setTransactionData] = useState([])
   const [currentView, setCurrentView] = useState('Overview Daily')
   const [loading, setLoading] = useState(false)
 
@@ -30,9 +30,9 @@ function App() {
       const res = await fetchData(url)
         // display loading spinner
       console.log(res)
-      setData(res)
-      console.log(data)
-      // transform data to match frontend specifications
+      setTransactionData(res)
+      console.log(transactionData)
+      // transform transactionData to match frontend specifications
         // transform date to Date Object?: 
       console.log('test')
       toggleLoadingState(false)
@@ -47,19 +47,19 @@ function App() {
   let displayContent;
   switch(currentView){
     case 'Overview Daily':
-      displayContent = <OverviewDaily data={data}/>
+      displayContent = <OverviewDaily transactionData={transactionData}/>
     break;
     case 'Overview Monthly':
-      displayContent = <OverviewMonthly data={data}/>
+      displayContent = <OverviewMonthly transactionData={transactionData}/>
     break;
     case 'Pie Chart Total Spend':
-      displayContent = <PieChartTotalSpend data={data}/>
+      displayContent = <PieChartTotalSpend transactionData={transactionData}/>
     break;
     case 'Creative Performance':
-      displayContent = <CreativePerformance data={data}/>
+      displayContent = <CreativePerformance transactionData={transactionData}/>
     break;
     case 'Best Days':
-      displayContent = <BestDays data={data}/>
+      displayContent = <BestDays transactionData={transactionData}/>
     break;
   }
 
@@ -67,7 +67,7 @@ function App() {
     <>
 
         <Header 
-          setData={setData} 
+          setTransactionData={setTransactionData} 
           toggleLoadingState={toggleLoadingState}
           currentView={currentView}
           setCurrentView={setCurrentView}
